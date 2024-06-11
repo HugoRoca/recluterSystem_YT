@@ -20,7 +20,7 @@ public class UserService extends DatabaseManager {
     public UserModel authentication(String user, String pass) throws SQLException {
         Connection conn = createConnect();
         
-        String sql = "select id, username, password, nickname, gender from users where username = ? and password = crypt(?, password)";
+        String sql = "select id, username, password, nickname, idemployee from users where username = ? and password = crypt(?, password)";
         
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user);
@@ -29,7 +29,7 @@ public class UserService extends DatabaseManager {
             ResultSet rs = pstmt.executeQuery();
             
             if (rs.next()) {
-                return new UserModel(rs.getInt("id"), rs.getString("username"), "", rs.getString("nickname"), rs.getString("gender"));
+                return new UserModel(rs.getInt("id"), rs.getString("username"), "", rs.getString("nickname"), rs.getInt("idemployee"));
             }
         } finally {
             closeConnect(conn);

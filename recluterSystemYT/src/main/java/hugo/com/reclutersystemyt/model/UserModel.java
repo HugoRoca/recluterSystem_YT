@@ -13,14 +13,14 @@ public class UserModel {
     private String usernmane;
     private String password;
     private String nickName;
-    private String gender;
+    private int idEmployee;
 
-    public UserModel(int id, String usernmane, String password, String nickName, String gender) {
+    public UserModel(int id, String usernmane, String password, String nickName, int idemployee) {
         this.id = id;
         this.usernmane = usernmane;
         this.password = password;
         this.nickName = nickName;
-        this.gender = gender;
+        this.idEmployee = idemployee;
     }
 
     public int getId() {
@@ -55,11 +55,11 @@ public class UserModel {
         this.nickName = nickName;
     }
 
-    public String getGender() {
-        return gender;
+    public int getIdEmployee() {
+        return idEmployee;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setIdEmployee(int idEmployee) {
+        this.idEmployee = idEmployee;
     }
 }
